@@ -11,7 +11,6 @@ class Directory extends React.Component {
         };
     }
 
-
 static navigationOptions = {
     title: 'Directory'
 };
