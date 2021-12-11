@@ -19,7 +19,7 @@ function RenderCampsite({campsite}) {
     return <View />;
 }
 
-class CampsiteInfo extends Component {
+class CampsiteInfo extends React.Component {
 
     constructor(props) {
         super(props);

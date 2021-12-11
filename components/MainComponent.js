@@ -31,7 +31,7 @@ const DirectoryNavigator = createStackNavigator(
 
 const AppNavigator = createAppContainer(DirectoryNavigator);
 
-class Main extends Component {
+class Main extends React.Component {
     render() {
         return (
             <View style={{
