@@ -11,8 +11,7 @@ import {
 import { Card, Icon, Rating, Input } from "react-native-elements";
 import { connect } from "react-redux";
 import { baseUrl } from "../shared/baseUrl";
-import { postFavorite } from "../redux/ActionCreators";
-import { postComment } from "../redux/ActionCreators";
+import { postFavorite, postComment } from "../redux/ActionCreators";
 
 const mapStateToProps = (state) => {
   return {
@@ -111,7 +110,12 @@ class CampsiteInfo extends React.Component {
   }
 
   handleComment(campsiteId) {
-    this.props.postComment(campsiteId, rating, author, text);
+    this.props.postComment(
+      campsiteId,
+      this.state.rating,
+      this.state.author,
+      this.state.text
+    );
     this.toggleModal();
   }
 
@@ -179,11 +183,11 @@ class CampsiteInfo extends React.Component {
               onChangeText={(text) => this.setState({ text: text })}
               value={this.state.text}
             />
-            <View>
+            <View style={{ margin: 10 }}>
               <Button
                 title="Submit"
                 color="#5637DD"
-                onPress={(campsiteId) => {
+                onPress={() => {
                   this.handleComment(campsiteId);
                   this.resetForm();
                 }}
