@@ -11,7 +11,7 @@ import {
 } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
 
-class Reservation extends React.Component {
+class Reservation extends Component {
   constructor(props) {
     super(props);
 
