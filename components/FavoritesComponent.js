@@ -18,6 +18,18 @@ class Favorites extends Component {
   };
 
   render() {
+    const { navigate } = this.props.navigation;
+    const renderFavoriteItem = ({ item }) => {
+      return (
+        <ListItem
+          title={item.name}
+          subtitle={item.description}
+          leftAvatar={{ source: { uri: baseUrl + item.image } }}
+          onPress={() => navigate("CampsiteInfo", { campsiteId: item.id })}
+        />
+      );
+    };
+
     if (this.props.campsites.isLoading) {
       return <Loading />;
     }
