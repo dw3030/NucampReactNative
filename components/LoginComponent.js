@@ -186,6 +186,29 @@ class RegisterTab extends Component {
 
   // week4 workshop task1 above...
 
+  // week4 task2 below...
+
+  getImageFromGallery = async () => {
+    // not sure if I still need camera permission in this method just to get to the camera roll
+    // const cameraPermission = await Permissions.askAsync(Permissions.CAMERA);
+    const cameraRollPermissions = await Permissions.askAsync(
+      Permissions.CAMERA_ROLL
+    );
+
+    if (cameraRollPermissions.status === "granted") {
+      const capturedImage = await ImagePicker.launchImageLibraryAsync({
+        allowsEditing: true,
+        aspect: [1, 1],
+      });
+      if (!capturedImage.cancelled) {
+        console.log(capturedImage);
+        this.processImage(capturedImage.uri);
+      }
+    }
+  };
+
+  // week4 task2 above...
+
   handleRegister() {
     console.log(JSON.stringify(this.state));
     if (this.state.remember) {
@@ -215,7 +238,7 @@ class RegisterTab extends Component {
             />
             <Button title="Camera" onPress={this.getImageFromCamera} />
             {/* week4 task 2 button here */}
-            <Button title="Gallery" />
+            <Button title="Gallery" onPress={this.getImageFromGallery} />
           </View>
           <Input
             placeholder="Username"
