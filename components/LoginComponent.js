@@ -164,12 +164,13 @@ class RegisterTab extends Component {
       if (!capturedImage.cancelled) {
         console.log(capturedImage);
         this.processImage(capturedImage.uri);
+        // removed in task1
         // this.setState({ imageUrl: capturedImage.uri });
       }
     }
   };
 
-  // week4 workshop below...
+  // week4 workshop task1 below...
   processImage = async (imgUri) => {
     const processedImage = await ImageManipulator.manipulateAsync(
       imgUri,
@@ -183,7 +184,7 @@ class RegisterTab extends Component {
     this.setState({ imageUrl: processedImage.uri });
   };
 
-  // week4 workshop above...
+  // week4 workshop task1 above...
 
   handleRegister() {
     console.log(JSON.stringify(this.state));
@@ -213,6 +214,8 @@ class RegisterTab extends Component {
               style={styles.image}
             />
             <Button title="Camera" onPress={this.getImageFromCamera} />
+            {/* week4 task 2 button here */}
+            <Button title="Gallery" />
           </View>
           <Input
             placeholder="Username"
