@@ -350,9 +350,9 @@ class Main extends Component {
     //         ToastAndroid.LONG
     //       );
     // });
-    // this.unsubscribeNetInfo = NetInfo.addEventListener((connectionInfo) => {
-    //   this.handleConnectivityChange(connectionInfo);
-    // });
+    this.unsubscribeNetInfo = NetInfo.addEventListener((connectionInfo) => {
+      this.handleConnectivityChange(connectionInfo);
+    });
   }
 
   // task 3 - below....
@@ -367,9 +367,6 @@ class Main extends Component {
             ToastAndroid.LONG
           );
     }
-    this.unsubscribeNetInfo = NetInfo.addEventListener((connectionInfo) => {
-      this.handleConnectivityChange(connectionInfo);
-    });
   };
 
   // task 3 - above...

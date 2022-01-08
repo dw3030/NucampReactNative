@@ -7,7 +7,7 @@ import * as Permissions from "expo-permissions";
 import { createBottomTabNavigator } from "react-navigation-tabs";
 import { baseUrl } from "../shared/baseUrl";
 import * as ImageManipulator from "expo-image-manipulator";
-import { SaveFormat, ActionResize } from "expo-image-manipulator";
+import { SaveFormat } from "expo-image-manipulator";
 import * as MediaLibrary from "expo-media-library";
 
 class LoginTab extends Component {
@@ -193,7 +193,7 @@ class RegisterTab extends Component {
   // week4 task2 below...
 
   getImageFromGallery = async () => {
-    // not sure if I still need camera permission in this method just to get to the camera roll
+    // not sure if I still need camera permission in this method just to get to the camera roll...probably not
     // const cameraPermission = await Permissions.askAsync(Permissions.CAMERA);
     const cameraRollPermissions = await Permissions.askAsync(
       Permissions.CAMERA_ROLL
