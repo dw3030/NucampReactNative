@@ -8,6 +8,7 @@ import { createBottomTabNavigator } from "react-navigation-tabs";
 import { baseUrl } from "../shared/baseUrl";
 import * as ImageManipulator from "expo-image-manipulator";
 import { SaveFormat, ActionResize } from "expo-image-manipulator";
+import * as MediaLibrary from "expo-media-library";
 
 class LoginTab extends Component {
   constructor(props) {
@@ -164,7 +165,7 @@ class RegisterTab extends Component {
       if (!capturedImage.cancelled) {
         console.log(capturedImage);
         this.processImage(capturedImage.uri);
-        // removed in task1
+        // removed in task1:
         // this.setState({ imageUrl: capturedImage.uri });
       }
     }
@@ -182,6 +183,9 @@ class RegisterTab extends Component {
 
     console.log(processedImage);
     this.setState({ imageUrl: processedImage.uri });
+
+    // week4 bonus task here...
+    MediaLibrary.saveToLibraryAsync(processedImage.uri);
   };
 
   // week4 workshop task1 above...
